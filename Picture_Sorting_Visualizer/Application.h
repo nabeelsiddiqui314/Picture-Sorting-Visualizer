@@ -1,5 +1,5 @@
 #pragma once
-#include<SFML/Graphics.hpp>
+#include "PictureArray.h"
 
 class Application
 {
@@ -10,6 +10,10 @@ public:
 	void onEvent(const sf::Event& event);
 	void render(sf::RenderTarget& renderer);
 private:
-	sf::RectangleShape m_testShape;
+	void updatePicture();
+private:
+	PictureArray m_array;
+	sf::Texture m_pictureTexture;
+	sf::RectangleShape m_pictureQuad;
 };
 
