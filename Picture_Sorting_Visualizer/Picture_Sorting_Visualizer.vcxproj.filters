@@ -27,10 +27,10 @@
     <ClInclude Include="PictureArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SortingAlgorithm.h">
+    <ClInclude Include="Algorithm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Algorithm.h">
+    <ClInclude Include="Shuffle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -47,10 +47,10 @@
     <ClCompile Include="PictureArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SortingAlgorithm.cpp">
+    <ClCompile Include="Algorithm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Algorithm.cpp">
+    <ClCompile Include="Shuffle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

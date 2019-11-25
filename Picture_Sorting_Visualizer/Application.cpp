@@ -11,8 +11,6 @@ Application::Application() {
 
 	m_pictureQuad.setSize({ (float)pictureSize.x, (float)pictureSize.y });
 	m_pictureQuad.setPosition(windowSize.x / 2 - pictureSize.x / 2, windowSize.y / 2 - pictureSize.y / 2);
-
-	m_array.shuffle();
 }
 
 

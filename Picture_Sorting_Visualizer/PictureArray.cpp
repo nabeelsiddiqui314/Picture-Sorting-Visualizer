@@ -4,22 +4,6 @@
 PictureArray::PictureArray() {
 	m_imageBuffer.loadFromFile("picture/picture.jpg");
 	m_array = std::make_unique<std::uint32_t[]>(getArraySize());
-
-	srand(time(NULL));
-}
-
-void PictureArray::shuffle() {
-	std::vector<std::uint32_t> tempArray;
-	
-	for (std::uint32_t i = 0; i < getArraySize(); i++) {
-		tempArray.emplace_back(i);
-	}
-
-	for (std::uint32_t i = 0; i < getArraySize(); i++) {
-		auto selectedIndex = getRandomIndex(tempArray.size());
-		swap(i, tempArray[selectedIndex]);
-		tempArray.erase(tempArray.begin() + selectedIndex);
-	}
 }
 
 void PictureArray::swap(std::uint32_t index1, std::uint32_t index2) {
@@ -39,11 +23,6 @@ const std::size_t PictureArray::getArraySize() const {
 
 const sf::Image& PictureArray::getImageBuffer() const {
 	return m_imageBuffer;
-}
-
-inline std::size_t PictureArray::getRandomIndex(std::size_t maxSize) const {
-	std::size_t index = rand() % maxSize;
-	return index;
 }
 
 inline std::uint32_t PictureArray::getX(std::size_t index) const {
