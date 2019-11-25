@@ -7,11 +7,13 @@ public:
 	Application();
 	~Application() = default;
 public:
-	void onEvent(const sf::Event& event);
-	void render(sf::RenderTarget& renderer);
+	void run();
 private:
-	void updatePicture();
+	void handleEvents();
+	void applyTextureToImage();
 private:
+	sf::RenderWindow m_window;
+
 	PictureArray m_array;
 	sf::Texture m_pictureTexture;
 	sf::RectangleShape m_pictureQuad;
