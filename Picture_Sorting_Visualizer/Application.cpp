@@ -11,6 +11,8 @@ Application::Application() {
 
 	m_pictureQuad.setSize({ (float)pictureSize.x, (float)pictureSize.y });
 	m_pictureQuad.setPosition(windowSize.x / 2 - pictureSize.x / 2, windowSize.y / 2 - pictureSize.y / 2);
+
+	m_array.shuffle();
 }
 
 
@@ -20,6 +22,7 @@ void Application::run() {
 
 		m_window.clear();
 
+		applyTextureToImage();
 		m_window.draw(m_pictureQuad);
 
 		m_window.display();
@@ -35,6 +38,6 @@ void Application::handleEvents() {
 	}
 }
 void Application::applyTextureToImage() {
-	m_pictureTexture.loadFromImage(m_array.getPictureBuffer());
+	m_pictureTexture.loadFromImage(m_array.getImageBuffer());
 	m_pictureQuad.setTexture(&m_pictureTexture);
 }
