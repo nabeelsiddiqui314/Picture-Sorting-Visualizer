@@ -1,5 +1,6 @@
 #pragma once
 #include "PictureArray.h"
+#include "Algorithm.h"
 
 class Application
 {
@@ -14,7 +15,9 @@ private:
 private:
 	sf::RenderWindow m_window;
 
-	PictureArray m_array;
+	std::unique_ptr<Algorithm> m_algorithm;
+	std::shared_ptr<PictureArray> m_array;
+
 	sf::Texture m_pictureTexture;
 	sf::RectangleShape m_pictureQuad;
 };
