@@ -6,7 +6,7 @@ Application::Application() {
 
 	applyTextureToImage();
 
-	const auto& pictureSize = m_array.getPictureBuffer().getSize();
+	const auto& pictureSize = m_array.getImageBuffer().getSize();
 	const auto& windowSize = m_window.getSize();
 
 	m_pictureQuad.setSize({ (float)pictureSize.x, (float)pictureSize.y });

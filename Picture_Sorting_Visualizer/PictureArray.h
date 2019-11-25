@@ -11,9 +11,9 @@ public:
 	void swap(std::uint32_t index1, std::uint32_t index2);
 	const std::size_t getArraySize() const;
 
-	const sf::Image& getPictureBuffer() const;
+	const sf::Image& getImageBuffer() const;
 private:
-	sf::Image m_picture;
+	sf::Image m_imageBuffer;
 	std::unique_ptr<std::uint32_t[]> m_array;
 };
 
