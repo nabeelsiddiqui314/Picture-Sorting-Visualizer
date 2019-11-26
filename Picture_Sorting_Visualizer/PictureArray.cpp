@@ -4,6 +4,10 @@
 PictureArray::PictureArray() {
 	m_imageBuffer.loadFromFile("picture/picture.jpg");
 	m_array = std::make_unique<std::uint32_t[]>(getArraySize());
+
+	for (std::uint32_t i = 0; i < getArraySize(); i++) {
+		m_array[i] = i;
+	}
 }
 
 std::uint32_t PictureArray::operator[](std::size_t index) const {
