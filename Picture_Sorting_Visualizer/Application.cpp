@@ -14,7 +14,7 @@ Application::Application() {
 	const auto& pictureSize = m_array->getImageBuffer().getSize();
 	const auto& windowSize = m_window.getSize();
 
-	m_pictureQuad.setSize({ (float)pictureSize.x * 2, (float)pictureSize.y * 2});
+	m_pictureQuad.setSize({ (float)pictureSize.x * 3, (float)pictureSize.y * 3});
 	m_pictureQuad.setPosition(windowSize.x / 2 - m_pictureQuad.getSize().x / 2, windowSize.y / 2 - m_pictureQuad.getSize().y / 2);
 }
 
@@ -25,7 +25,7 @@ void Application::run() {
 
 		m_window.clear();
 
-		runAlgorithm(300000);
+		runAlgorithmFor(30);
 
 		applyTextureToImage();
 		m_window.draw(m_pictureQuad);
@@ -58,10 +58,8 @@ void Application::applyTextureToImage() {
 	m_pictureQuad.setTexture(&m_pictureTexture);
 }
 
-void Application::runAlgorithm(std::uint32_t times) {
-	std::uint32_t counter = 0;
-
-	while (counter < times) {
+void Application::runAlgorithmFor(std::uint32_t times) {
+	while (m_frameClock.getElapsedTime().asMilliseconds() < times) {
 		if (m_algorithm) {
 			m_algorithm->run();
 
@@ -73,7 +71,6 @@ void Application::runAlgorithm(std::uint32_t times) {
 		else {
 			return;
 		}
-
-		counter++;
 	}
+	m_frameClock.restart();
 }
