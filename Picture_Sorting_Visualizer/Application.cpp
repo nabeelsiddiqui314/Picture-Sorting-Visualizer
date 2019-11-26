@@ -24,13 +24,7 @@ void Application::run() {
 
 		m_window.clear();
 
-		if (m_algorithm) {
-			m_algorithm->run();
-
-			if (m_algorithm->hasCompleted()) {
-				m_algorithm.reset();
-			}
-		}
+		runAlgorithm(1000);
 
 		applyTextureToImage();
 		m_window.draw(m_pictureQuad);
@@ -58,4 +52,21 @@ void Application::handleEvents() {
 void Application::applyTextureToImage() {
 	m_pictureTexture.loadFromImage(m_array->getImageBuffer());
 	m_pictureQuad.setTexture(&m_pictureTexture);
+}
+
+void Application::runAlgorithm(std::uint32_t times) {
+	std::uint32_t counter = 0;
+
+	while (counter < times) {
+		if (m_algorithm) {
+			m_algorithm->run();
+
+			if (m_algorithm->hasCompleted()) {
+				m_algorithm.reset();
+				return;
+			}
+		}
+
+		counter++;
+	}
 }

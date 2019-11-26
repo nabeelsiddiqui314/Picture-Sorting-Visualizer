@@ -12,6 +12,7 @@ public:
 private:
 	void handleEvents();
 	void applyTextureToImage();
+	void runAlgorithm(std::uint32_t times);
 private:
 	sf::RenderWindow m_window;
 
