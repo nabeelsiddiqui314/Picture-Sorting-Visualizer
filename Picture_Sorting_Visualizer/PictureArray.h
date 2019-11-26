@@ -8,6 +8,8 @@ public:
 	PictureArray();
 	~PictureArray() = default;
 public:
+	std::uint32_t operator[](std::size_t index) const;
+
 	void swap(std::uint32_t index1, std::uint32_t index2);
 	const std::size_t getArraySize() const;
 

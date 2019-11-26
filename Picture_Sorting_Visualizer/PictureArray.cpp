@@ -6,6 +6,10 @@ PictureArray::PictureArray() {
 	m_array = std::make_unique<std::uint32_t[]>(getArraySize());
 }
 
+std::uint32_t PictureArray::operator[](std::size_t index) const {
+	return m_array[index];
+}
+
 void PictureArray::swap(std::uint32_t index1, std::uint32_t index2) {
 	auto tempValue = m_array[index1];
 	auto tempColor = m_imageBuffer.getPixel(getX(index1), getY(index1));
