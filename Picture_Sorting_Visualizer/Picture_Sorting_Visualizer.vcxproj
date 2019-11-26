@@ -161,6 +161,7 @@
   <ItemGroup>
     <ClInclude Include="Algorithm.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="BubbleSort.h" />
     <ClInclude Include="PictureArray.h" />
     <ClInclude Include="Shuffle.h" />
     <ClInclude Include="stdafx.h" />
@@ -169,6 +170,7 @@
   <ItemGroup>
     <ClCompile Include="Algorithm.cpp" />
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="BubbleSort.cpp" />
     <ClCompile Include="PictureArray.cpp" />
     <ClCompile Include="Picture_Sorting_Visualizer.cpp" />
     <ClCompile Include="Shuffle.cpp" />

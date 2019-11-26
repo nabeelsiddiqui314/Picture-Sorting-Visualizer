@@ -2,6 +2,7 @@
 #include "Application.h"
 
 #include "Shuffle.h"
+#include "BubbleSort.h"
 
 Application::Application() {
 	m_window.create(sf::VideoMode(800, 600), "Picture Sorter");
@@ -13,8 +14,8 @@ Application::Application() {
 	const auto& pictureSize = m_array->getImageBuffer().getSize();
 	const auto& windowSize = m_window.getSize();
 
-	m_pictureQuad.setSize({ (float)pictureSize.x, (float)pictureSize.y });
-	m_pictureQuad.setPosition(windowSize.x / 2 - pictureSize.x / 2, windowSize.y / 2 - pictureSize.y / 2);
+	m_pictureQuad.setSize({ (float)pictureSize.x * 2, (float)pictureSize.y * 2});
+	m_pictureQuad.setPosition(windowSize.x / 2 - m_pictureQuad.getSize().x / 2, windowSize.y / 2 - m_pictureQuad.getSize().y / 2);
 }
 
 
@@ -24,7 +25,7 @@ void Application::run() {
 
 		m_window.clear();
 
-		runAlgorithm(1000);
+		runAlgorithm(300000);
 
 		applyTextureToImage();
 		m_window.draw(m_pictureQuad);
@@ -40,6 +41,9 @@ void Application::handleEvents() {
 			if (evnt.type == sf::Event::KeyPressed) {
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
 					m_algorithm = std::make_unique<Shuffle>(m_array);
+				}
+				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
+					m_algorithm = std::make_unique<BubbleSort>(m_array);
 				}
 			}
 		}
@@ -65,6 +69,9 @@ void Application::runAlgorithm(std::uint32_t times) {
 				m_algorithm.reset();
 				return;
 			}
+		}
+		else {
+			return;
 		}
 
 		counter++;
